@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: linuxhub-web-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: demo.linuxhub.cn
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: linuxhub-web-svc
+          servicePort: 8088
