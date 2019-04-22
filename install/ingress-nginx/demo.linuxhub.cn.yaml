@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ing-nginx-test
+  namespace: default
+
+  # 默认使用 nginx 控制器
+  #annotations: 
+  #  kubernets.io/ingress.class: nginx
+  
+spec:
+  rules:
+  - host: demo.linuxhub.cn
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: linuxhub-web-svc
+          servicePort: 8088
